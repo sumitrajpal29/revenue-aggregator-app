@@ -4,11 +4,8 @@ export default function Filter({ setFilter, setSearchClicked }) {
     const handleInputChange = event => {
         const value = event.target.value;
         setFilter(value);
+        setSearchClicked(false);
     };
-
-    function handleButtonClick() {
-
-    }
 
     return (
         <div>

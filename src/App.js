@@ -27,13 +27,13 @@ function App() {
       const filteredData = revenueData.filter(
         item => filter ? item.name.toLowerCase().includes(filter.toLowerCase()) : true
       );
-      // if (searchClicked) {
-      //   filteredData = revenueData.filter(item => filter ? item.name.toLowerCase() === filter.toLowerCase() : true);
-      // }
+      const filteredDataFinal = revenueData.filter(item => filter ? item.name.toLowerCase() === filter.toLowerCase() : true);
 
-      setData(filteredData);
+      const finalData = searchClicked ? filteredDataFinal : filteredData;
 
-      const total = filteredData.reduce((acc, item) => acc + item.revenue, 0);
+      setData(finalData);
+
+      const total = finalData.reduce((acc, item) => acc + item.revenue, 0);
       setTotalRevenue(total);
       // console.log(revenueData);
     } catch (error) {
